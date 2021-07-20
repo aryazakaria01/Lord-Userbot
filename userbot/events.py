@@ -98,10 +98,10 @@ def register(**args):
                     date = strftime("%Y-%m-%d %H:%M:%S", gmtime())
 
                     text = "**Lord-Userbot ERROR**\n"
-                    link = "Silahkan chat: @liualvinas"
+                    link = "Silahkan chat: @Badboyanim"
                     text += "Untuk melaporkan kesalahan"
                     text += f"- tinggal teruskan pesan ini {link}.\n"
-                    text += "Alvin Siap Membantu Kamu\n"
+                    text += "Arya Siap Membantu Kamu\n"
 
                     ftext = "========== DISCLAIMER =========="
                     ftext += "\nThis file uploaded ONLY here,"
