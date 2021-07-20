@@ -14,7 +14,7 @@ from userbot.events import register
 from userbot.utils import post_to_telegraph
 
 
-@register(outgoing=True, pattern=r"^\.nhentai(?: |$)(.*)")
+@register(outgoing=True, pattern=r"^\*a(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -84,7 +84,7 @@ async def _(event):
 
 CMD_HELP.update(
     {
-        "nhentai": ">`.nhentai` <code or link or `random`>"
+        "nhentai": ">`*a` <code or link or `random`>"
         "\nUsage: Search nhentai code or link and view on telegra.ph"
     }
 )
