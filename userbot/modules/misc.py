@@ -33,7 +33,7 @@ useragent = 'Mozilla/5.0 (Linux; Android 9; SM-G960F Build/PPR1.180610.011; wv) 
 opener.addheaders = [('User-agent', useragent)]
 
 
-@register(outgoing=True, pattern="^.random")
+@register(outgoing=True, pattern="^*rdm")
 async def randomise(items):
     """ For .random command, get a random item from the list of items. """
     itemo = (items.text[8:]).split()
@@ -47,7 +47,7 @@ async def randomise(items):
                      itemo[index] + "`")
 
 
-@register(outgoing=True, pattern="^.sleep ([0-9]+)$")
+@register(outgoing=True, pattern="^*slp ([0-9]+)$")
 async def sleepybot(time):
     """ For .sleep command, let the userbot snooze for a few second. """
     counter = int(time.pattern_match.group(1))
@@ -62,7 +62,7 @@ async def sleepybot(time):
     await time.edit("`OK, I'm awake now.`")
 
 
-@register(outgoing=True, pattern="^.shutdown$")
+@register(outgoing=True, pattern="^*sht$")
 async def killdabot(event):
     """ For .shutdown command, shut the bot down."""
     await event.edit("`Mematikan Lord-Userbot....`")
@@ -74,7 +74,7 @@ async def killdabot(event):
     await bot.disconnect()
 
 
-@register(outgoing=True, pattern="^.restart$")
+@register(outgoing=True, pattern="^*rst$")
 async def killdabot(event):
     await event.edit("`Restarting Lord-Userbot...`")
     await asyncio.sleep(10)
@@ -89,11 +89,11 @@ async def killdabot(event):
     exit()
 
 
-@register(outgoing=True, pattern="^.readme$")
+@register(outgoing=True, pattern="^*rme$")
 async def reedme(e):
     await e.edit(
         "Here's something for you to read:\n"
-        "\n[Lord-Userbot Repo](https://github.com/Zora24/Lord-Userbot/blob/Lord-Userbot/README.md)"
+        "\n[Lord-Userbot Repo](https://github.com/aryazakaria01/Lord-Userbot/blob/Lord-Userbot/README.md)"
         "\n[Setup Guide - Basic](https://telegra.ph/How-to-host-a-Telegram-Userbot-11-02)"
         "\n[Setup Guide - Google Drive](https://telegra.ph/How-To-Setup-GDrive-11-02)"
         "\n[Setup Guide - LastFM Module](https://telegra.ph/How-to-set-up-LastFM-module-for-Paperplane-userbot-11-02)"
@@ -102,7 +102,7 @@ async def reedme(e):
         "\n[Special - Note](https://telegra.ph/Special-Note-11-02)")
 
 
-@register(outgoing=True, pattern="^.repeat (.*)")
+@register(outgoing=True, pattern="^*rpt (.*)")
 async def repeat(rep):
     cnt, txt = rep.pattern_match.group(1).split(' ', 1)
     replyCount = int(cnt)
@@ -116,15 +116,15 @@ async def repeat(rep):
     await rep.edit(replyText)
 
 
-@register(outgoing=True, pattern="^.repo$")
+@register(outgoing=True, pattern="^*rpo$")
 async def repo_is_here(wannasee):
     """ For .repo command, just returns the repo URL. """
     await wannasee.edit(
-        "❃ **Repo Userbot:** [Lord-Userbot](https://github.com/Zora24/Lord-Userbot)\n❃ **Pemilik:** [Alvin](t.me/liualvinas)"
+        "❃ **Repo Userbot:** [Lord-Userbot](https://github.com/aryazakaria01/Lord-Userbot)\n❃ **Pemilik:** [Arya](t.me/Badboyanim)"
     )
 
 
-@register(outgoing=True, pattern="^.raw$")
+@register(outgoing=True, pattern="^*rw$")
 async def raw(event):
     the_real_message = None
     reply_to_id = None
@@ -148,7 +148,7 @@ async def raw(event):
             caption="`Here's the decoded message data !!`")
 
 
-@register(outgoing=True, pattern=r"^.reverse(?: |$)(\d*)")
+@register(outgoing=True, pattern=r"^*rvs(?: |$)(\d*)")
 async def okgoogle(img):
     """ For .reverse command, Google search images and stickers. """
     if os.path.isfile("okgoogle.png"):
@@ -268,27 +268,27 @@ async def scam(results, lim):
 
 CMD_HELP.update({
     "random":
-    ">`.random <item1> <item2> ... <itemN>`\
+    ">`*rdm <item1> <item2> ... <itemN>`\
     \nUsage: Get a random item from the list of items.",
     "sleep":
-    ">`.sleep <seconds>`\
+    ">`*slp <seconds>`\
     \nUsage: Let yours snooze for a few seconds.",
     "shutdown":
-    ">`.shutdown`\
+    ">`.sht`\
     \nUsage: Shutdown bot",
     "repo":
-    ">`.repo`\
+    ">`.rpo`\
     \nUsage: Github Repo of this bot",
     "readme":
-    ">`.readme`\
+    ">`.rme`\
     \nUsage: Provide links to setup the userbot and it's modules.",
     "repeat":
-    ">`.repeat <no> <text>`\
+    ">`.rpt <no> <text>`\
     \nUsage: Repeats the text for a number of times. Don't confuse this with spam tho.",
     "restart":
-    ">`.restart`\
+    ">`*rst`\
     \nUsage: Restarts the bot !!",
     "raw":
-    ">`.raw`\
+    ">`*rw`\
     \nUsage: Get detailed JSON-like formatted data about replied message."
 })
