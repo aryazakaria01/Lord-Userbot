@@ -18,7 +18,7 @@ async def get_nekos_img(args):
             return result
 
 
-@register(outgoing=True, pattern=r"^\.ra(?: |$)(.*)")
+@register(outgoing=True, pattern=r"^\*ra(?: |$)(.*)")
 async def nekos_media(event):
     args = event.pattern_match.group(1)
     args_error = "Do `.help nekos` to see available arguments."
@@ -41,7 +41,7 @@ async def nekos_media(event):
 
 CMD_HELP.update(
     {
-        "nekos": ">`.ra <arguments>`"
+        "nekos": ">`*ra <arguments>`"
         "\nUsage: For fetching images from nekos"
         "\n\nArguments : `8ball`, `anal`, `avatar`, `baka`, `bj`, "
         "`blowjob`, `boobs`, `classic`, `cuddle`, `cum`, "
